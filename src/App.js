@@ -1,23 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import StudentCollection from './components/StudentCollection'
 
 function App() {
+  const students = [ { name: 'Devin', email: 'dmoney@gmail', class: 'Leaves', present: true } ,
+                     { name:'Becca', email: 'bmoney@gmail', class: 'Leaves', present: true  },
+                     { name: 'Dee', email: 'dee@dee.dee', class: 'Branches', present: false  }, 
+                     { name:'Jared', email: 'jared@not-jarred.biz', class: 'Branches', present: true  },
+                     { name: 'Tonks', present: false}]
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <StudentCollection people={students}/>
       </header>
     </div>
   );

@@ -1,0 +1,19 @@
+.leaves {
+  background-color: green 
+}
+
+.branches{
+  background-color: burlywood;
+}
+
+.no-class{
+  background-color: cornflowerblue;
+}
+
+.present p {
+  color: greenyellow
+}
+
+.absent p {
+  color: red
+}
