@@ -9,13 +9,24 @@ class NameDisplay extends React.Component {
     };
   }
 
+  onButtonClick = () => {
+      this.setState({displayName: !this.state.displayName})
+  }
+
+  onNameChange = () => {
+
+  }
+
   render() {
     let display = 'Sorry, I don\'t know your name.';
     if (this.state.displayName) {
       display = `Hello, ${this.state.name}.`;
     }
+
     return (
       <section>
+        Change your name: <input onChange={this.onNameChange}></input>
+        <button onClick={ this.onButtonClick }>Toggle Display</button>
         { display }
       </section>
     );
