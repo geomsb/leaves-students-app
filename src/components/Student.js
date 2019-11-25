@@ -7,16 +7,17 @@ class Student extends React.Component{
 //const Student = (props) => {
   // Component functions always return JSX
   
-  //constructor(props){
-  //  super(props) //this.props = props
-  //}
+  constructor(props){
+    super(props) //this.props = props
+    this.state = {present: false}
+  }
 
   buildStyles() {
     let selectStyles = this.props.class.toLowerCase();
     selectStyles = selectStyles +  ' ' + (this.props.present ? 'present' : 'absent');              
     return selectStyles;
   }
-  
+
   render(){
     return (
       <li className={this.buildStyles()}>
