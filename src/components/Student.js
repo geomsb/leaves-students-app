@@ -2,20 +2,28 @@ import React from 'react';
 import './Student.css';
 import PropTypes from 'prop-types';
 
-const Student = (props) => {
-  // Component functions always return JSX
 
-  const buildStyles = () => {
-    let selectStyles = props.class.toLowerCase();
-    selectStyles = selectStyles +  ' ' + (props.present ? 'present' : 'absent');              
+class Student extends React.Component{
+//const Student = (props) => {
+  // Component functions always return JSX
+  
+  //constructor(props){
+  //  super(props) //this.props = props
+  //}
+
+  buildStyles() {
+    let selectStyles = this.props.class.toLowerCase();
+    selectStyles = selectStyles +  ' ' + (this.props.present ? 'present' : 'absent');              
     return selectStyles;
   }
-
-  return (
-    <li className={buildStyles()}>
-    {props.name} <p>{props.email}</p>
-    </li>
-  );
+  
+  render(){
+    return (
+      <li className={this.buildStyles()}>
+      {this.props.name} <p>{this.props.email}</p>
+      </li>
+    );
+  }
 };
 
 
