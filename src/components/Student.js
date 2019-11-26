@@ -3,22 +3,22 @@ import './Student.css';
 import PropTypes from 'prop-types';
 
 
-class Student extends React.Component{
-//const Student = (props) => {
+class Student extends React.Component {
+  //const Student = (props) => {
   // Component functions always return JSX
-  
-  constructor(props){
+
+  constructor(props) {
     super(props) //this.props = props
-    this.state = {present: false}
+    this.state = { present: false }
   }
 
-  buildStyles() {
+  buildStyles () {
     let selectStyles = this.props.class.toLowerCase();
     selectStyles = selectStyles +  ' ' + (this.props.present ? 'present' : 'absent');              
     return selectStyles;
   }
 
-  render(){
+  render () {
     return (
       <li className={this.buildStyles()}>
       {this.props.name} <p>{this.props.email}</p>
@@ -37,7 +37,7 @@ Student.propTypes = {
 
 Student.defaultProps = {
   class: 'no-class',
-  email: 'No Email On File'
+  email: 'No Email On File',
 };
 
 export default Student;
