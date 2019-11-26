@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import Student from './Student';
 
 //const StudentCollection = (props) => {
-class StudentCollection extends React.Component{
+class StudentCollection extends React.Component {
+  constructor(props) {
+    super(props);
 
   makeCollection(){
     const studentCollection = this.props.people.map((student, i) => {
