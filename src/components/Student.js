@@ -7,21 +7,28 @@ import PropTypes from 'prop-types';
 const Student = (props) => {
   // Component functions always return JSX
 
+  const { present } = props;
+
   const buildStyles = () => {
     let selectStyles = props.class.toLowerCase();
-    selectStyles = selectStyles + ' ' + (props.present ? 'present' : 'absent');
+    selectStyles = selectStyles + ' ' + (present ? 'present' : 'absent');
     return selectStyles;
   }
   const onTogglePresentClick = () => {
     console.log('Toggling Present');
     props.togglePresent(props.email);
   }
+  const onDeleteClick = () => {
+    console.log(`Deleting ${ props.email }`);
+    props.delete(props.email);
+  }
   return (
     <li className={buildStyles()}>
       {props.name} <p>{props.email}</p>
       <button onClick={onTogglePresentClick}>Mark
-        {props.present ? ' Absent' : ' Present'}
+        {present ? ' Absent' : ' Present'}
       </button>
+      <button onClick={onDeleteClick}>Delete</button>
     </li>
   );
 };
@@ -33,6 +40,7 @@ Student.propTypes = {
   class: PropTypes.string,
   present: PropTypes.bool.isRequired,
   togglePresent: PropTypes.func.isRequired,
+  delete: PropTypes.func.isRequired,
 };
 
 Student.defaultProps = {
