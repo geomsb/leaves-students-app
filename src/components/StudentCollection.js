@@ -25,8 +25,17 @@ class StudentCollection extends React.Component {
       <ul>
         {this.makeCollection()}
       </ul>
-  );
+    );
   }
+};
+
+StudentCollection.propTypes = {
+  people: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string,
+    class: PropTypes.string,
+    present: PropTypes.bool.isRequired,
+  })).isRequired,
 };
 
 
