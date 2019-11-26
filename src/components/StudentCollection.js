@@ -20,8 +20,8 @@ class StudentCollection extends React.Component {
     );
     return studentCollection
   }
-  render(){
-    return(
+  render () {
+    return (
       <ul>
         {this.makeCollection()}
       </ul>
