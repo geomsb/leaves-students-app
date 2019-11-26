@@ -8,10 +8,15 @@ class StudentCollection extends React.Component {
   constructor(props) {
     super(props);
 
-  makeCollection(){
-    const studentCollection = this.props.people.map((student, i) => {
-        return <Student name={student.name} email={student.email} present={student.present} class={student.class} key={i} />;
-      }
+    this.state = {
+      people: props.people,
+    };
+  }
+
+  makeCollection () {
+    const studentCollection = this.state.people.map((student, i) => {
+      return <Student name={student.name} email={student.email} present={student.present} class={student.class} key={i} />;
+    }
     );
     return studentCollection
   }
