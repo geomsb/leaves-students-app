@@ -14,14 +14,17 @@ class Student extends React.Component {
 
   buildStyles () {
     let selectStyles = this.props.class.toLowerCase();
-    selectStyles = selectStyles +  ' ' + (this.props.present ? 'present' : 'absent');              
+    selectStyles = selectStyles + ' ' + (this.props.present ? 'present' : 'absent');
     return selectStyles;
   }
 
   render () {
     return (
       <li className={this.buildStyles()}>
-      {this.props.name} <p>{this.props.email}</p>
+        {this.props.name} <p>{this.props.email}</p>
+        <button>
+          Mark {this.props.present ? "Absent" : "Present"}
+        </button>
       </li>
     );
   }
