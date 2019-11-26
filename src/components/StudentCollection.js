@@ -13,7 +13,6 @@ class StudentCollection extends React.Component {
   }
 
   togglePresent = (studentEmail) => {
-    console.log('Toggling', studentEmail);
     const { students } = this.state;
     //    const students = this.state.students;
 
@@ -25,7 +24,18 @@ class StudentCollection extends React.Component {
       //students: students,
       students,
     });
+  }
 
+  deleteStudent = (studentEmail) => {
+    // Use indexOf to get the index
+    // Use splice with the index
+
+    const updatedStudents =
+      this.state.students.filter((student) => student.email !== studentEmail);
+
+    this.setState({
+      students: updatedStudents,
+    });
   }
 
   makeCollection () {
@@ -36,6 +46,7 @@ class StudentCollection extends React.Component {
         present={student.present}
         class={student.class}
         togglePresent={this.togglePresent}
+        delete={this.deleteStudent}
         key={i}
       />;
     }
