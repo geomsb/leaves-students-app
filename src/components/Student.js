@@ -3,28 +3,27 @@ import './Student.css';
 import PropTypes from 'prop-types';
 
 
-class Student extends React.Component{
-//const Student = (props) => {
+const Student = (props) => {
   // Component functions always return JSX
-  
-  constructor(props){
-    super(props) //this.props = props
-    this.state = {present: false}
-  }
 
-  buildStyles() {
-    let selectStyles = this.props.class.toLowerCase();
-    selectStyles = selectStyles +  ' ' + (this.props.present ? 'present' : 'absent');              
+  const buildStyles = () => {
+    let selectStyles = props.class.toLowerCase();
+    selectStyles = selectStyles + ' ' + (props.present ? 'present' : 'absent');
     return selectStyles;
   }
 
-  render(){
-    return (
-      <li className={this.buildStyles()}>
-      {this.props.name} <p>{this.props.email}</p>
-      </li>
-    );
+  const onToggleAttendanceClick = () => {
+    console.log('ToggleAttendanceClicked');
+    props.changeAttendance(props.email);
   }
+
+  return (
+    <li className={buildStyles()}>
+      {props.name} <p>{props.email}</p>
+      <button onClick={onToggleAttendanceClick} >Mark {props.present ? 'Absent' : 'Present'} </button>
+      <button onClick={() => { props.deleteStudent(props.email) }}>Delete Student</button>
+    </li>
+  );
 };
 
 
@@ -32,7 +31,9 @@ Student.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string,
   class: PropTypes.string,
-  present: PropTypes.bool.isRequired
+  present: PropTypes.bool.isRequired,
+  changeAttendance: PropTypes.func.isRequired,
+  deleteStudent: PropTypes.func.isRequired,
 };
 
 Student.defaultProps = {
