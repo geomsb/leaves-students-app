@@ -1,6 +1,7 @@
 import React from 'react';
 import PropType from 'prop-types';
 import Student from './Student';
+import NewStudentForm from './NewStudentForm'
 
 //const StudentCollection = (props) => {
 class StudentCollection extends React.Component {
@@ -38,6 +39,16 @@ class StudentCollection extends React.Component {
     });
   }
 
+  addStudent = (newStudent) => {
+    console.log("add student ", newStudent.name)
+    const students = this.state.students
+    students.push(newStudent)
+
+    this.setState({
+      students
+    })
+  }
+
   makeCollection () {
     const studentCollection = this.state.students.map((student, i) => {
       return <Student
@@ -55,9 +66,13 @@ class StudentCollection extends React.Component {
   }
   render () {
     return (
+      <div>
+      <NewStudentForm addStudentCallback={this.addStudent}/>
+      <h3>Students</h3>
       <ul>
         {this.makeCollection()}
       </ul>
+      </div>
     );
   }
 };
